@@ -18,6 +18,8 @@ body,html{
   height: 100%;
   margin: 0px;
 }
+</style>
+<style scoped>
 #app, .fill{
   width: 100%;
   height: 100%;
