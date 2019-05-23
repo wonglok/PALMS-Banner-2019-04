@@ -52,9 +52,23 @@ function makeBasics ({ mounter }) {
   return api
 }
 
+function makeTexture (src) {
+  var image = new Image()
+  var texture = new THREE.Texture();
+  texture.image = image;
+  image.onload = function() {
+    texture.needsUpdate = true;
+  };
+  image.src = src
+  return texture
+}
+
 function createBackground ({ scene, img }) {
   var geometry = new THREE.PlaneBufferGeometry(80, 45, 10, 10)
-  var material = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, map: new THREE.TextureLoader().load(img) });
+  let map = makeTexture(img)
+  var material = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, map })
+
+  // var material = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, map: new THREE.TextureLoader().load(img) });
   var drawable = new THREE.Mesh(geometry, material);
   scene.add(drawable);
   drawable.position.z = -10;
