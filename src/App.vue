@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="palms-app">
     <Scene></Scene>
   </div>
 </template>
@@ -20,8 +20,10 @@ body,html{
 }
 </style>
 <style scoped>
-#app, .fill{
+#palms-app, .fill{
   width: 100%;
   height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 </style>
