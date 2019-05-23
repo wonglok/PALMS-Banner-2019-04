@@ -3,12 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "github": "git add .; git commit -am \"github backup\"; git push -u origin master",
+    "deploy": "npm run build;npm run build-lib; npm run cp; npm run netlify; npm run github;",
+    "netlify": "netlify deploy --dir=\"./dist\" --prod",
+    "build-lib": "vue-cli-service build --target lib --name palmsBanner ./src/App.vue --dest ./dist/lib"
   },
   "dependencies": {
+    "@tweenjs/tween.js": "^17.3.0",
     "core-js": "^2.6.5",
+    "three": "^0.104.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
